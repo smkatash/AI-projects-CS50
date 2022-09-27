@@ -6,3 +6,6 @@ Through hands-on projects, students gain exposure to the theory behind graph sea
 reinforcement learning, and other topics in artificial intelligence and machine learning as they incorporate them into their own Python programs. 
 By course’s end, students emerge with experience in libraries for machine learning as well as knowledge of artificial intelligence principles 
 that enable them to design intelligent systems of their own.
+
+Full Course: [CS50’s Introduction to Artificial Intelligence with Python](https://cs50.harvard.edu/ai/2020/)\
+Instructor: [Brian Yu](https://brianyu.me/)

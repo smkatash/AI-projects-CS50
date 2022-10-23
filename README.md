@@ -11,13 +11,15 @@ Full Course: [CS50’s Introduction to Artificial Intelligence with Python](http
 Instructor: [Brian Yu](https://brianyu.me/)
 
 
-[Tic-Tac-Toe Using Minimax](https://github.com/smkatash/AI-projects-CS50/tree/master/tictactoe), implement an AI to play Tic-Tac-Toe optimally.
+### Table Of Contents
+- [Tic-Tac-Toe Using Minimax](https://github.com/smkatash/AI-projects-CS50/tree/master/tictactoe), implement an AI to play Tic-Tac-Toe optimally.
 
 ![image](https://user-images.githubusercontent.com/76934648/191232197-6b20492d-a4a9-4976-8448-cc3998849e4c.png)
 
 ```bash
 # Clone this project
-$ https://github.com/smkatash/Tic-Tac-Toe-with-AI-Using-Minimax
+$ https://github.com/smkatash/AI-projects-CS50
+$ cd tictactoe
 
 # Prerequisite pygame
 $ pip3 install pygame

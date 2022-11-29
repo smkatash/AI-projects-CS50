@@ -4,7 +4,7 @@ import re
 import sys
 
 DAMPING = 0.85
-SAMPLES = 5
+SAMPLES = 1000
 
 
 def main():

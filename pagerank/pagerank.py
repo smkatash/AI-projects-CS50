@@ -4,7 +4,7 @@ import re
 import sys
 
 DAMPING = 0.85
-SAMPLES = 10000
+SAMPLES = 5
 
 
 def main():
@@ -61,14 +61,13 @@ def transition_model(corpus, page, damping_factor):
 	probability_dict = {}
 	#get links from random page
 	links_page = corpus[page]
-	for link in links_page:
-		probability_dict[link] = damping_factor * (1 / (len(links_page)))
-
 	#get links from all pages in the corpus
 	links_total = []
 	for page in corpus:
 		links_total.append(page)
 		probability_dict[page] = 0
+	for link in links_page:
+		probability_dict[link] = damping_factor * (1 / (len(links_page)))
 	for link in links_total:
 		probability_dict[link] = probability_dict[link] + ((1 - damping_factor) * (1 / len(links_total)))
 	return probability_dict
@@ -113,7 +112,34 @@ def iterate_pagerank(corpus, damping_factor):
 	their estimated PageRank value (a value between 0 and 1). All
 	PageRank values should sum to 1.
 	"""
-	raise NotImplementedError
+	page_ranks = {}
+	threshold = 0.0005
+	N = len(corpus)
+	#set probability for N pages
+	for key in corpus:
+		page_ranks[key] = 1 / N
+	#update ranking until count reaches N
+	while True:
+		count = 0
+		for key in corpus:
+			#set rank for next page
+			next_page = (1 - damping_factor) / N
+			presum = 0
+			for page in corpus:
+				if key in corpus[page]:
+					links_sum = len(corpus[page])
+					#update current page by sum of p for links on selected page
+					presum = presum + page_ranks[page] / links_sum
+			presum =  damping_factor * presum
+			next_page += presum
+			#count less than threshold
+			if abs(page_ranks[key] - next_page) < threshold:
+				count += 1
+			page_ranks[key] = next_page
+		if count == N:
+			break
+	return page_ranks
+
 
 
 if __name__ == "__main__":
